@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './css/App.css';
+import './App.css';
 import Header from './components/Header';
+import Table from './components/Table';
 
 class App extends Component {
   render() {
@@ -13,11 +14,8 @@ class App extends Component {
             This is a selector
           </div>
         
-          <div className="table">
-            <ul>
-              <li>This is a list</li>
-            </ul>
-          </div>
+          <Table />
+          
 
           <div className="map">
             Put map here
