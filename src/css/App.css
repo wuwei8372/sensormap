@@ -1,0 +1,35 @@
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header {
+    padding: 0.5em;
+    color: black;
+    
+    clear: left;
+    text-align: left;
+}
+
+div.table {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+div.table ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+div.table ul a {
+    text-decoration: none;
+}
+
+div.map {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
