@@ -50,8 +50,13 @@ class Map extends Component {
 
   });
   }
-  componentWillReceiveProps() {
-     
+  componentWillReceiveProps(nextProps) {
+      if (this.state.map === null) {
+        return;
+      }
+      if (nextProps === this.props) {
+        return;
+      }
       console.log(this.state.map);
       this.state.map.getSource("pointsSource").setData({
         "type": "FeatureCollection",

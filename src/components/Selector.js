@@ -15,10 +15,12 @@ class Selector extends Component {
   };
 
   handleChange = value => {
+    
     this.setState({
       value: value
     })
     this.props.AppCBForNewVoltage(value);
+
   };
 
   handleChangeComplete = () => {
