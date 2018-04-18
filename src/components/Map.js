@@ -7,49 +7,28 @@ mapboxgl.accessToken = 'pk.eyJ1Ijoid3V3ZWk4MzcyIiwiYSI6ImNqZzQ5cjF6czF5ZW0ycXFwZ
 class Map extends Component {
   constructor(props: Props) {
     super(props);
-    const tmpmap = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/light-v9',
-      center: [-84.32693481445312, 33.69806524140501],
-      zoom: 10
-    });
+    
     this.state = {
       lat: 33.69806524140501,
       lng: -84.32693481445312,
       zoom: 10,
-      currentMap: tmpmap
+      map : null
     };
   }
 
-  componentWillReceiveProps() {
-        this.state.currentMap.getSource("pointsSource").setData({
-          type: "geojson",
-          data: {
-          "type": "FeatureCollection",
-          "features": this.props.geojson
-          } 
-          })
-    }
-  
+    
   componentDidMount() {
     const { lng, lat, zoom } = this.state;
 
     const map = new mapboxgl.Map({
-      container: 'map',
+      container: this.container,
       style: 'mapbox://styles/mapbox/light-v9',
       center: [lng, lat],
       zoom
     });
-
-    this.setState({
-      currentMap: map
-    })
       
 
   map.on('load', () =>{
-
-
-    
 
     map.addSource("pointsSource", {
       type: "geojson",
@@ -64,18 +43,70 @@ class Map extends Component {
       source: "pointsSource",
       type: "circle"
     });
-
     
+    this.setState({
+      map
+    })   
 
   });
   }
+  componentWillReceiveProps() {
+     
+      console.log(this.state.map);
+      this.state.map.getSource("pointsSource").setData({
+        "type": "FeatureCollection",
+        "features": this.props.geojson
+      });
+
+//         this.state.map.getSource("pointsSource").setData(
+//           {
+//   "type": "FeatureCollection",
+//   "features": [
+//     {
+//       "type": "Feature",
+//       "properties": {},
+//       "geometry": {
+//         "type": "Point",
+//         "coordinates": [
+//           -84.32693481445312,
+//           33.69806524140501
+//         ]
+//       }
+//     },
+//     {
+//       "type": "Feature",
+//       "properties": {},
+//       "geometry": {
+//         "type": "Point",
+//         "coordinates": [
+//           -84.25689697265625,
+//           33.72776616734189
+//         ]
+//       }
+//     },
+//     {
+//       "type": "Feature",
+//       "properties": {},
+//       "geometry": {
+//         "type": "Point",
+//         "coordinates": [
+//           -84.14840698242188,
+//           33.65006512803725
+//         ]
+//       }
+//     }
+//   ]
+// }
+//           );  
+   }
+  
   
   render() {
     const { lng, lat, zoom } = this.state;
 
     return (
-      <div className="Map">
-        <div id="map" className="map" />
+      <div className="Map" ref={(x) => { this.container = x }}>
+        
       </div>
     );
   }
