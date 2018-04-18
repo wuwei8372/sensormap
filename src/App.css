@@ -14,6 +14,7 @@ div.header {
 div.table {
     float: left;
     max-width: 400px;
+    height: 800px;
     margin: 0;
     padding: 1em;
 }
@@ -21,10 +22,16 @@ div.table {
 
 
 div.map {
-    margin-left: 170px;
+    
     /*border-left: 1px solid gray;*/
-    padding: 1em;
+    
     overflow: hidden;
+    height: 800px;
+}
+
+div.slider {
+  padding: 1em;
+  max-width: 300px;
 }
 
 table {

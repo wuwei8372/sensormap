@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import sensorData from '../data/data.json'
+
 
 class Table extends Component {
-	constructor(props) {
-      super(props)
-		this.state = {
-			data: sensorData
-		}
-	}
+	
   render() {
     return (
       <div className="Table">
-      	<p>{sensorData.length} Devices</p>
+      	<p>{this.props.filteredData.length} Devices</p>
       	<div className="table">
             <table>
             	<tbody>
@@ -20,7 +15,7 @@ class Table extends Component {
 	            	<td>Category</td>
             		<td>Value</td>
             	</tr>
-            	{this.state.data.map(function(item, key){
+            	{this.props.filteredData.map(function(item, key){
             		return (
             			<tr key = {key}>
 	            			<td>{item.deviceId}</td>
