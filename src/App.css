@@ -21,8 +21,6 @@ div.table {
     padding: 1em;*/
 }
 
-
-
 div.Map {
     
     /*border-left: 1px solid gray;*/
@@ -65,6 +63,7 @@ td {
     text-align: center;
     font-weight: bold;
 }
+
 td.title {
   color: grey;
 }
@@ -79,8 +78,6 @@ p.title {
   font-weight: bold;
   font-size: 20px;
 }
-
-
 
 /**
 * Rangeslider

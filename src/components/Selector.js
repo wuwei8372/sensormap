@@ -5,8 +5,9 @@ import Slider from 'react-rangeslider'
 class Selector extends Component {
   constructor (props, context) {
     super(props, context)
+    const DEFAULT_VOLTAGE = 120;
     this.state = {
-      value: 120
+      value: DEFAULT_VOLTAGE
     }
   }
 
@@ -14,6 +15,7 @@ class Selector extends Component {
     console.log('Change event started')
   };
 
+  // every time the slider was triggered, the new value will be passed to the Map component
   handleChange = value => {
     
     this.setState({
@@ -28,7 +30,7 @@ class Selector extends Component {
   };
 
   render () {
-    const { value } = this.state
+    var { value } = this.state
     return (
       <div className='sliderContainer'>
         <div className='slider'>
