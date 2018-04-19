@@ -6,14 +6,17 @@ class Table extends Component {
   render() {
     return (
       <div className="Table">
-      	<p>{this.props.filteredData.length} Devices</p>
+      	
       	<div className="table">
             <table>
             	<tbody>
+              
+                <p className="title">{this.props.filteredData.length} Devices</p>
+              
             	<tr>
-            		<td>Device</td>
-	            	<td>Category</td>
-            		<td>Value</td>
+            		<td className="title">Device</td>
+	            	<td className="title">Category</td>
+            		<td className="title">Value</td>
             	</tr>
             	{this.props.filteredData.map(function(item, key){
             		return (

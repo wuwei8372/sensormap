@@ -43,6 +43,12 @@ class Map extends Component {
       source: "pointsSource",
       type: "circle"
     });
+
+    var nav = new mapboxgl.NavigationControl({
+      // Hide rotation control.
+      showCompass: false
+    });
+    map.addControl(nav, 'top-left');
     
     this.setState({
       map

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Slider from 'react-rangeslider'
-import 'react-rangeslider/lib/index.css'
+// import 'react-rangeslider/lib/index.css'
 
 class Selector extends Component {
   constructor (props, context) {
@@ -30,17 +30,19 @@ class Selector extends Component {
   render () {
     const { value } = this.state
     return (
-      <div className='slider'>
-        <p>Ave voltage</p>
-        <Slider
-          min={114}
-          max={126}
-          value={value}
-          onChangeStart={this.handleChangeStart}
-          onChange={this.handleChange}
-          onChangeComplete={this.handleChangeComplete}
-        />
-        <div className='value'>{value}V</div>
+      <div className='sliderContainer'>
+        <div className='slider'>
+          <p>Ave voltage</p>
+          <Slider
+            min={114}
+            max={126}
+            value={value}
+            onChangeStart={this.handleChangeStart}
+            onChange={this.handleChange}
+            onChangeComplete={this.handleChangeComplete}
+          />
+          <div className='value'>{value}V</div>
+        </div>
       </div>
     )
   }
